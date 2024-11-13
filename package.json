@@ -1,0 +1,11 @@
+{
+  "name": "transform-to-sql-format",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:hjplumtree/transform-to-sql-format.git",
+  "author": "hjplumtree <dark199174@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "fs": "^0.0.1-security"
+  }
+}
