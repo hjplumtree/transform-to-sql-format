@@ -6,6 +6,7 @@
   "author": "hjplumtree <dark199174@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "csv-writer": "^1.6.0",
     "fs": "^0.0.1-security"
   }
 }
