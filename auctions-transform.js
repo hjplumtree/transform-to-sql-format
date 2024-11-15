@@ -10,13 +10,13 @@ let auctionSqlStatements = "";
 let aggregationSqlStatements = "";
 
 // Transform each auction document
-data.foreach((auction) => {
-  const id = auction.id;
+data.forEach((auction) => {
+  const id = auction._id.$oid;
   const pk = escapeQuotes(auction.pk);
   const year_month = auction.year_month;
 
   // Insert statement for the auctions table
-  auctionSqlStatements += `INSERT INTO auctions (id, pk, year_month) VALUES ('${id}', '${pk}', '${year_month}')`;
+  auctionSqlStatements += `INSERT INTO auctions (id, pk, year_month) VALUES ('${id}', '${pk}', '${year_month}');\n`;
 
   auction.quarterly_aggregations.forEach((aggregation) => {
     const quarter_number = aggregation.quarter_number;
@@ -26,7 +26,7 @@ data.foreach((auction) => {
     const number_of_sales = aggregation.number_of_sales;
 
     // Insert statement for the quarterly_aggregations table
-    aggregationSqlStatements += `INSERT INTO quarterly_aggregations (auction_id, quarter_number, quarter_start, quarter_end, number_of_auctions, number_of_sales) VALUES ('${id}', '${quarter_number}', '${quarter_start}', '${quarter_end}', '${number_of_auctions}', '${number_of_sales}')`;
+    aggregationSqlStatements += `INSERT INTO quarterly_aggregations (auction_id, quarter_number, quarter_start, quarter_end, number_of_auctions, number_of_sales) VALUES ('${id}', '${quarter_number}', '${quarter_start}', '${quarter_end}', '${number_of_auctions}', '${number_of_sales}');\n`;
   });
 });
 
